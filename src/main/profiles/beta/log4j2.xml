@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <Property name="log-path">/datadrive/azureuserdata/tomcat</Property>
+    </Properties>
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <RollingFile name="PerformanceRollingFile" fileName="${log-path}/logs/performance.log"
+                     filePattern="${log-path}/logs/$${date:yyyy-MM}/performance-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%msg%n" />
+            <SizeBasedTriggeringPolicy size="1024MB"/>
+        </RollingFile>
+
+        <RollingFile name="AnalysisRollingFile" fileName="${log-path}/logs/analysis.log"
+                     filePattern="${log-path}/logs/$${date:yyyy-MM}/analysis-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%msg%n" />
+            <SizeBasedTriggeringPolicy size="1024MB"/>
+        </RollingFile>
+
+    </Appenders>
+    <Loggers>
+        <logger name = "performance_logger" level="INFO" additivity="false">
+            <AppenderRef ref="PerformanceRollingFile"/>
+        </logger>
+
+        <logger name = "analysis_logger" level="INFO" additivity="false">
+            <AppenderRef ref="AnalysisRollingFile"/>
+        </logger>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
