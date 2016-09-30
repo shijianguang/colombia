@@ -102,5 +102,31 @@ public class CommonUtils {
         return !isAlphabet(c);
     }
 
+    public static String trimBefore(String string, char... c) {
+        int charLength = c.length;
+        int strLength = string.length();
+        int i = 0;
+        for(; i < strLength ; ++ i) {
+            char t = string.charAt(i);
+            boolean contains = false;
+            for(int j = 0 ; j < charLength ; ++ j) {
+                if(c[j] == t) {
+                    contains = true;
+                    break;
+                }
+            }
+
+            if(!contains) {
+                break;
+            }
+        }
+
+        if(i < strLength) {
+            return string.substring(i);
+        } else {
+            return StringUtils.EMPTY;
+        }
+    }
+
 
 }

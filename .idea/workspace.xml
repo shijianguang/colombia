@@ -2,7 +2,7 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/request/detail/BatchDetailDataApiRequest.java" line="51" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaper.java" line="140" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaper.java" line="141" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ef0b2bb-b373-4d0c-a604-d7aea173c378" name="Default" comment="" />
@@ -30,53 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SearchService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/service/SearchService.java">
+      <file leaf-file-name="MultiMediaSearchAdaper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29138166" vertical-offset="3912" max-vertical-offset="6015">
-              <caret line="303" column="63" selection-start-line="303" selection-start-column="63" selection-end-line="303" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3285">
+              <caret line="224" column="17" selection-start-line="224" selection-start-column="17" selection-end-line="224" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mvc-config.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/mvc-config.xml">
+      <file leaf-file-name="log4j2.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/profiles/prod/log4j2.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="540">
-              <caret line="27" column="89" selection-start-line="27" selection-start-column="89" selection-end-line="27" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MappingJackson2HttpMessageConverter.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.1.2.RELEASE/spring-web-4.1.2.RELEASE-sources.jar!/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="359" max-vertical-offset="1395">
-              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BingHttpComponent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BingHttpComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="723" max-vertical-offset="4530">
-              <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchApiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/controller/SearchApiController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
-              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="630">
+              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -85,18 +53,68 @@
       <file leaf-file-name="SearchApiV2Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/controller/SearchApiV2Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1200">
+            <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1200">
               <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/JsonUtil.java">
+      <file leaf-file-name="Response.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/response/Response.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1478" max-vertical-offset="2235">
-              <caret line="129" column="25" selection-start-line="129" selection-start-column="25" selection-end-line="129" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AsyncHttpClientConfig.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/ning/async-http-client/1.9.24/async-http-client-1.9.24-sources.jar!/com/ning/http/client/AsyncHttpClientConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="10308" max-vertical-offset="14295">
+              <caret line="798" column="23" selection-start-line="798" selection-start-column="23" selection-end-line="798" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/service/SearchService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43091655" vertical-offset="0" max-vertical-offset="6600">
+              <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BingHttpComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BingHttpComponent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-26.961538" vertical-offset="3409" max-vertical-offset="4440">
+              <caret line="285" column="15" selection-start-line="285" selection-start-column="15" selection-end-line="285" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchElementData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/schema/response/search/SearchElementData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1668" max-vertical-offset="2445">
+              <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseHttpComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BaseHttpComponent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.8846154" vertical-offset="495" max-vertical-offset="3900">
+              <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,39 +122,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="877" max-vertical-offset="1410">
+              <caret line="88" column="28" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BingHttpComponentTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/microsoft/xuetang/component/BingHttpComponentTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BingAcademicSearchEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/internal/response/BingAcademicSearchEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="990">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-              <folding>
-                <element signature="e#523#524#0" expanded="true" />
-                <element signature="e#548#549#0" expanded="true" />
-                <element signature="e#778#779#0" expanded="true" />
-                <element signature="e#804#805#0" expanded="true" />
-                <element signature="e#842#843#0" expanded="true" />
-                <element signature="e#872#873#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -154,10 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaperTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/internalrpc/response/BingAcademicBdiApiResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/QueryUnderstandingComponent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/log/QueryInstrumentLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/log/LogEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/log/SearchEntityLog.java" />
@@ -186,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/test/java/component/Adapter/MultiMediaSearchAdaperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/cache/WebFeatureEntiry.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/cache/WebFeatureEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BaseHttpComponent.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/microsoft/xuetang/component/BingHttpComponentTest.java" />
         <option value="$PROJECT_DIR$/src/test/resources/bing_academic_result.json" />
         <option value="$PROJECT_DIR$/src/test/java/com/microsoft/xuetang/service/SearchServiceTest.java" />
@@ -200,9 +186,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/aspect/ApiRequestAspect.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/JsonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/controller/DetailDataApiController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/FeatureServerComponent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/internal/response/BingAcademicSearchEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/profiles/beta/log4j2.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/CommonUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/microsoft/xuetang/util/CommonUtilsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BaseHttpComponent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BingHttpComponent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/service/SearchService.java" />
       </list>
@@ -307,6 +298,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="XueTangSearchApi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xuetang" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -477,6 +494,36 @@
               <option name="myItemId" value="profiles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prod" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="XueTangSearchApi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -527,6 +574,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="xuetang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="XueTangSearchApi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xuetang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -804,14 +881,14 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.microsoft.xuetang.util" />
       <recent name="com.microsoft.xuetang.service" />
       <recent name="com.microsoft.xuetang.component" />
       <recent name="com.microsoft.xuetang.component.Adapter" />
-      <recent name="com.microsoft.xuetang.util" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.microsoft.xuetang.Exception" />
@@ -831,48 +908,7 @@
       <recent name="D:\Workspace\XueTangSearchApi\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.SearchServiceTest.testAcademicSearch">
-    <configuration default="false" name="MultiMediaSearchAdaperTest.testParserQuery" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.microsoft.xuetang.component.Adapter.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Api" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.microsoft.xuetang.component.Adapter" />
-      <option name="MAIN_CLASS_NAME" value="com.microsoft.xuetang.component.Adapter.MultiMediaSearchAdaperTest" />
-      <option name="METHOD_NAME" value="testParserQuery" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="52573" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="TestNG.CommonUtilsTest.testTrimBefore">
     <configuration default="false" name="BingHttpComponentTest.testString2BingAcademicSearchResponse" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1006,6 +1042,41 @@
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CommonUtilsTest.testTrimBefore" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.microsoft.xuetang.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Api" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.microsoft.xuetang.util" />
+      <option name="MAIN_CLASS_NAME" value="com.microsoft.xuetang.util.CommonUtilsTest" />
+      <option name="METHOD_NAME" value="testTrimBefore" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -1219,22 +1290,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1255,6 +1310,22 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1312,19 +1383,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="TestNG.MultiMediaSearchAdaperTest.testParserQuery" />
-      <item index="1" class="java.lang.String" itemvalue="TestNG.BingHttpComponentTest.testString2BingAcademicSearchResponse" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.BingHttpComponentTest.testString2BingAcademicSearchResponseWithLargeData" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.SearchServiceTest.testAcademicSearch" />
-      <item index="4" class="java.lang.String" itemvalue="TestNG.SearchServiceTest" />
+      <item index="0" class="java.lang.String" itemvalue="TestNG.BingHttpComponentTest.testString2BingAcademicSearchResponse" />
+      <item index="1" class="java.lang.String" itemvalue="TestNG.BingHttpComponentTest.testString2BingAcademicSearchResponseWithLargeData" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.SearchServiceTest.testAcademicSearch" />
+      <item index="3" class="java.lang.String" itemvalue="TestNG.SearchServiceTest" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.CommonUtilsTest.testTrimBefore" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.SearchServiceTest.testAcademicSearch" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.BingHttpComponentTest.testString2BingAcademicSearchResponseWithLargeData" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.SearchServiceTest" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.BingHttpComponentTest.testString2BingAcademicSearchResponse" />
-        <item index="4" class="java.lang.String" itemvalue="TestNG.MultiMediaSearchAdaperTest.testParserQuery" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.CommonUtilsTest.testTrimBefore" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.SearchServiceTest.testAcademicSearch" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.BingHttpComponentTest.testString2BingAcademicSearchResponseWithLargeData" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.SearchServiceTest" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG.BingHttpComponentTest.testString2BingAcademicSearchResponse" />
       </list>
     </recent_temporary>
   </component>
@@ -1383,7 +1454,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3987261" sideWeight="0.4996321" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3987261" sideWeight="0.50036794" order="7" side_tool="true" content_ui="tabs" />
@@ -1399,6 +1469,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32356688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24944812" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -1420,13 +1491,13 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866243" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19573216" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32356688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24944812" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32356688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1486,25 +1557,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/service/SearchService.java</url>
-          <line>376</line>
+          <line>389</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/service/SearchService.java</url>
-          <line>240</line>
+          <line>242</line>
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaper.java</url>
-          <line>140</line>
+          <line>141</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaper.java</url>
-          <line>120</line>
+          <line>121</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
@@ -1516,7 +1587,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/service/SearchService.java</url>
-          <line>301</line>
+          <line>311</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
@@ -1536,193 +1607,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/src.zip!/java/io/InputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="363" max-vertical-offset="5220">
-          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#15829#0" expanded="false" />
-            <element signature="e#15796#15797#0" expanded="false" />
-            <element signature="e#15824#15825#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/src.zip!/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="32298" max-vertical-offset="53145">
-          <caret line="2259" column="24" selection-start-line="2259" selection-start-column="24" selection-end-line="2259" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#147821#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#23047#23048#0" expanded="false" />
-            <element signature="e#23104#23105#0" expanded="false" />
-            <element signature="e#23453#23454#0" expanded="false" />
-            <element signature="e#23509#23510#0" expanded="false" />
-            <element signature="e#32636#32637#0" expanded="false" />
-            <element signature="e#32683#32684#0" expanded="false" />
-            <element signature="e#45841#45842#0" expanded="false" />
-            <element signature="e#45932#45933#0" expanded="false" />
-            <element signature="e#56746#56747#0" expanded="false" />
-            <element signature="e#56789#56790#0" expanded="false" />
-            <element signature="e#58208#58209#0" expanded="false" />
-            <element signature="e#58257#58258#0" expanded="false" />
-            <element signature="e#58496#58497#0" expanded="false" />
-            <element signature="e#58567#58568#0" expanded="false" />
-            <element signature="e#58809#58810#0" expanded="false" />
-            <element signature="e#58891#58892#0" expanded="false" />
-            <element signature="e#104463#104464#0" expanded="false" />
-            <element signature="e#104523#104524#0" expanded="false" />
-            <element signature="e#112572#112573#0" expanded="false" />
-            <element signature="e#112604#112605#0" expanded="false" />
-            <element signature="e#112898#112899#0" expanded="false" />
-            <element signature="e#112942#112943#0" expanded="false" />
-            <element signature="e#114513#114514#0" expanded="false" />
-            <element signature="e#114550#114551#0" expanded="false" />
-            <element signature="e#114579#114580#0" expanded="false" />
-            <element signature="e#114620#114621#0" expanded="false" />
-            <element signature="e#117160#117161#0" expanded="false" />
-            <element signature="e#117198#117199#0" expanded="false" />
-            <element signature="e#136811#136812#0" expanded="false" />
-            <element signature="e#136896#136897#0" expanded="false" />
-            <element signature="e#139547#139548#0" expanded="false" />
-            <element signature="e#139624#139625#0" expanded="false" />
-            <element signature="e#144390#144391#0" expanded="false" />
-            <element signature="e#144427#144428#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaGetDetailDataAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="157" max-vertical-offset="1125">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/request/search/SearchApiRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="1590">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#1123#1124#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/microsoft/xuetang/service/SearchServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/SearchList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="945">
-          <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpServletRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1353" max-vertical-offset="10425">
-          <caret line="182" column="18" selection-start-line="182" selection-start-column="18" selection-end-line="182" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.1.2.RELEASE/spring-web-4.1.2.RELEASE-sources.jar!/org/springframework/web/bind/annotation/ResponseBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#1423#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/request/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1095">
-          <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
-          <folding>
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="e#1313#1314#0" expanded="true" />
-            <element signature="e#1345#1346#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/log/InstrumentLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-            <element signature="e#1074#1075#0" expanded="true" />
-            <element signature="e#1101#1102#0" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1173#1174#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/log/SearchInstrumentLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/LogUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="2610">
-          <caret line="63" column="59" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/request/detail/DetailDataApiRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BaseHttpComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="3600">
-          <caret line="45" column="70" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/request/detail/JsonPDetailDataApiRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#233#234#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/response/detail/BatchDetailDataResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1730,23 +1618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/response/search/SearchApiResponseV2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/response/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1770,7 +1641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1778,7 +1648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="213" max-vertical-offset="12105">
           <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1786,7 +1655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
           <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1802,7 +1670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-48.0" vertical-offset="28887" max-vertical-offset="40980">
           <caret line="2105" column="12" selection-start-line="2105" selection-start-column="7" selection-end-line="2105" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1810,18 +1677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
           <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="e#217#218#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/aspect/ApiRequestAspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.269231" vertical-offset="240" max-vertical-offset="2715">
-          <caret line="60" column="76" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1837,7 +1692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5924" max-vertical-offset="8970">
           <caret line="418" column="19" selection-start-line="418" selection-start-column="19" selection-end-line="418" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1845,7 +1699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="36689" max-vertical-offset="56565">
           <caret line="2599" column="70" selection-start-line="2599" selection-start-column="70" selection-end-line="2599" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1853,7 +1706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.923077" vertical-offset="1553" max-vertical-offset="4215">
           <caret line="161" column="46" selection-start-line="161" selection-start-column="46" selection-end-line="161" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1861,7 +1713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="194" max-vertical-offset="7485">
           <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1869,7 +1720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0384617" vertical-offset="1268" max-vertical-offset="3495">
           <caret line="129" column="20" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1877,7 +1727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="720">
           <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1905,22 +1754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="134" max-vertical-offset="1380">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/schema/response/search/SearchElementData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1619" max-vertical-offset="2445">
-          <caret line="192" column="53" selection-start-line="192" selection-start-column="53" selection-end-line="192" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1935">
@@ -1933,7 +1766,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="359" max-vertical-offset="1395">
           <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#0#4009#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2042#2043#0" expanded="false" />
+            <element signature="e#2097#2098#0" expanded="false" />
+            <element signature="e#2707#2708#0" expanded="false" />
+            <element signature="e#2742#2743#0" expanded="false" />
+            <element signature="e#3262#3263#0" expanded="false" />
+            <element signature="e#3317#3318#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1957,7 +1799,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="585">
           <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1966,7 +1810,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1478" max-vertical-offset="2235">
           <caret line="129" column="25" selection-start-line="129" selection-start-column="25" selection-end-line="129" selection-end-column="25" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3079#3080#0" expanded="false" />
+            <element signature="e#3123#3124#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1976,12 +1821,37 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="990">
           <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding>
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-            <element signature="e#872#873#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#584#585#0" expanded="false" />
+            <element signature="e#612#613#0" expanded="false" />
+            <element signature="e#644#645#0" expanded="false" />
+            <element signature="e#672#673#0" expanded="false" />
+            <element signature="e#714#715#0" expanded="false" />
+            <element signature="e#748#749#0" expanded="false" />
+            <element signature="e#910#911#0" expanded="false" />
+            <element signature="e#944#945#0" expanded="false" />
+            <element signature="e#998#999#0" expanded="false" />
+            <element signature="e#1044#1045#0" expanded="false" />
+            <element signature="e#1088#1089#0" expanded="false" />
+            <element signature="e#1118#1119#0" expanded="false" />
+            <element signature="e#1174#1175#0" expanded="false" />
+            <element signature="e#1212#1213#0" expanded="false" />
+            <element signature="e#1261#1262#0" expanded="false" />
+            <element signature="e#1296#1297#0" expanded="false" />
+            <element signature="e#1362#1363#0" expanded="false" />
+            <element signature="e#1410#1411#0" expanded="false" />
+            <element signature="e#1459#1460#0" expanded="false" />
+            <element signature="e#1494#1495#0" expanded="false" />
+            <element signature="e#1560#1561#0" expanded="false" />
+            <element signature="e#1608#1609#0" expanded="false" />
+            <element signature="e#1642#1643#0" expanded="false" />
+            <element signature="e#1672#1673#0" expanded="false" />
+            <element signature="e#1718#1719#0" expanded="false" />
+            <element signature="e#1756#1757#0" expanded="false" />
+            <element signature="e#1788#1789#0" expanded="false" />
+            <element signature="e#1816#1817#0" expanded="false" />
+            <element signature="e#1858#1859#0" expanded="false" />
+            <element signature="e#1892#1893#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1990,32 +1860,194 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/response/search/SearchApiResponseV2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+          <caret line="10" column="79" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/MultiSearchList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/SearchList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="188" max-vertical-offset="945">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/ElasticSearchComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="3150">
+          <caret line="82" column="38" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/LogUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2610">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/aspect/ApiRequestAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2715">
+          <caret line="60" column="76" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/profiles/dev/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="757">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/profiles/beta/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="757">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/profiles/dev/log4j2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="757">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/profiles/beta/log4j2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6-sources.jar!/org/apache/commons/lang/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="97575">
+          <caret line="148" column="31" selection-start-line="148" selection-start-column="31" selection-end-line="148" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/microsoft/xuetang/util/CommonUtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/CommonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1935">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="877" max-vertical-offset="1410">
+          <caret line="88" column="28" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/Adapter/MultiMediaSearchAdaper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3285">
+          <caret line="224" column="17" selection-start-line="224" selection-start-column="17" selection-end-line="224" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/profiles/prod/log4j2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="630">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/schema/response/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/controller/SearchApiV2Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1200">
+        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1200">
           <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BingHttpComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/bean/schema/response/search/SearchElementData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="723" max-vertical-offset="4530">
-          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="2445">
+          <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/ning/async-http-client/1.9.24/async-http-client-1.9.24-sources.jar!/com/ning/http/client/AsyncHttpClientConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="10308" max-vertical-offset="14295">
+          <caret line="798" column="23" selection-start-line="798" selection-start-column="23" selection-end-line="798" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BaseHttpComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8846154" vertical-offset="495" max-vertical-offset="3900">
+          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/component/BingHttpComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.961538" vertical-offset="3409" max-vertical-offset="4440">
+          <caret line="285" column="15" selection-start-line="285" selection-start-column="15" selection-end-line="285" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/xuetang/service/SearchService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29138166" vertical-offset="3912" max-vertical-offset="6015">
-          <caret line="303" column="63" selection-start-line="303" selection-start-column="63" selection-end-line="303" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.43091655" vertical-offset="0" max-vertical-offset="6600">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
           <folding />
         </state>
       </provider>

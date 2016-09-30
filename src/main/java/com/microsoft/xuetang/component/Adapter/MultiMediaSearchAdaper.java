@@ -6,6 +6,7 @@ import com.microsoft.xuetang.bean.schema.response.search.SearchElementData;
 import com.microsoft.xuetang.component.ElasticSearchComponent;
 import com.microsoft.xuetang.schema.request.search.SearchApiRequest;
 import com.microsoft.xuetang.util.CommonUtils;
+import com.microsoft.xuetang.util.Constants;
 import org.apache.logging.log4j.core.appender.SyslogAppender;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -216,7 +217,12 @@ public class MultiMediaSearchAdaper {
                 value = data.get("Title");
                 entity.setTitle(value instanceof String ? (String)value : null);
                 value = data.get("Abstract");
-                entity.setSnippet(value instanceof String ? (String)value : null);
+                if(value instanceof String) {
+                    String abstractContent = CommonUtils.trimBefore((String) value, Constants.NEW_LINE_CHARACTER_ARRAY);
+                    entity.setSnippet(abstractContent);
+                } else {
+                    entity.setSnippet(null);
+                }
                 value = data.get("ImageUrl");
                 entity.setImageUrl(value instanceof String ? (String)value : null);
                 value = data.get("Url");

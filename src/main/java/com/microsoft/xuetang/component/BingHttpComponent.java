@@ -283,8 +283,13 @@ public class BingHttpComponent extends BaseHttpComponent {
             JsonNode id = jsonNode.get("Id");
             JsonNode name = jsonNode.get("Name");
 
-            if(id != null && JsonUtil.isLongJsonNode(id) && name != null && name.isTextual()) {
-                entiyBeans.add(new EntityBean(JsonUtil.number2String(id), name.asText()));
+            if(name != null && name.isTextual()) {
+                EntityBean bean = new EntityBean();
+                bean.setName(name.asText());
+                if(id != null && JsonUtil.isLongJsonNode(id)) {
+                    bean.setId(JsonUtil.number2String(id));
+                }
+                entiyBeans.add(bean);
             }
 
 

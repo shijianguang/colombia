@@ -238,9 +238,14 @@ public class SearchService {
         String[] indexAndType = Constants.DataTypeIndexMap.get(Constants.DataType.VIDEO);
         try {
             SearchList<SearchElementData> result = elasticSearchComponent.syncSearch(searchRequest, new MultiMediaSearchAdaper.RequestAdaper(indexAndType[0], indexAndType[1]), new MultiMediaSearchAdaper.ResponseAdaper());
-            videoReRank(result);
 
-            return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
+            if(result != null) {
+                videoReRank(result);
+                return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
+            } else {
+                logger.error("Search video data return null result");
+                return null;
+            }
         } catch (Exception e) {
             logger.info("Search video data error. Query: {}, c ount: {}, offset: {}. Reason is: {}", searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset(), e.getMessage());
         }
@@ -251,7 +256,12 @@ public class SearchService {
         String[] indexAndType = Constants.DataTypeIndexMap.get(Constants.DataType.PPT);
         try {
             SearchList<SearchElementData> result = elasticSearchComponent.syncSearch(searchRequest, new MultiMediaSearchAdaper.RequestAdaper(indexAndType[0], indexAndType[1]), new MultiMediaSearchAdaper.ResponseAdaper());
-            return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
+            if(result != null) {
+                return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
+            } else {
+                logger.error("Search ppt data return null result");
+                return null;
+            }
         } catch (Exception e) {
             logger.info("Search ppt data error. Query: {}, count: {}, offset: {}. Reason is: {}", searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset(), e.getMessage());
         }
@@ -351,8 +361,11 @@ public class SearchService {
     }
 
     private SearchList<SearchElementData> videoReRank(SearchList<SearchElementData> searchList) {
-        int count = searchList.getCount();
         List<SearchElementData> list = searchList.getList();
+        if(list == null) {
+            return searchList;
+        }
+        int count = searchList.getCount();
         List<ListWrapper<SearchElementData>> helperList = new LinkedList<>();
         Map<String, ListWrapper<SearchElementData>> clusterId2List = new HashMap<>();
 

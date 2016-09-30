@@ -30,7 +30,7 @@
         <logger name = "analysis_logger" level="INFO" additivity="false">
             <AppenderRef ref="AnalysisRollingFile"/>
         </logger>
-        <Root level="INFO">
+        <Root level="DEBUG">
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>

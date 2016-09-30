@@ -35,7 +35,7 @@ public class BaseHttpComponent implements DisposableBean {
     static {
         opened = false;
         AsyncHttpClientConfig config = new AsyncHttpClientConfig.Builder()
-                .setRequestTimeout(100000)
+                .setRequestTimeout(10000)
                 .setMaxRequestRetry(3)
                 .build();
         asyncHttpClient = new AsyncHttpClient(config);

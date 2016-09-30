@@ -90,4 +90,6 @@ public class Constants {
     public static final String Bing_ONCE_CALL_COUNT_IN_STRING = String.valueOf(BING_ONCE_CALL_COUNT);
 
     public static final SearchApiResponseV2 EMPTY_SEARCH_API_RESPONSE = new SearchApiResponseV2();
+
+    public static final char[] NEW_LINE_CHARACTER_ARRAY = new char[] {'\r', '\n'};
 }
