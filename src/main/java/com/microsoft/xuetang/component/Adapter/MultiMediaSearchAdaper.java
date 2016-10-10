@@ -75,21 +75,29 @@ public class MultiMediaSearchAdaper {
                                     .should(keywordsBuilder)
                     );
                 } else {
+                    int queryTermConditionCount = 0;
                     BoolQueryBuilder queryTermBuilder = QueryBuilders.boolQuery();
+                    int noEntityTermConditionCount = 0;
                     BoolQueryBuilder noEntityTermBuilder = QueryBuilders.boolQuery();
                     for (QueryTerm term : queryTerms) {
                         if (term.slop < 0) {
+                            ++ noEntityTermConditionCount;
                             noEntityTermBuilder.should(QueryBuilders.termQuery("NormalizedTitle", term.term));
                         } else {
+                            ++ queryTermConditionCount;
                             queryTermBuilder.should(QueryBuilders.matchPhraseQuery("NormalizedTitle", term.term).slop(term.slop).boost(4));
                         }
                     }
-                    newBuilder.setQuery(
-                            QueryBuilders.boolQuery()
-                                    .should(noEntityTermBuilder)
-                                    .should(queryTermBuilder.boost(2))
-                                    .should(keywordsBuilder)
-                    );
+                    BoolQueryBuilder finalQuery = QueryBuilders.boolQuery();;
+                    if(queryTermConditionCount > 0) {
+                        finalQuery.should(queryTermBuilder.boost(2));
+                    }
+                    if(noEntityTermConditionCount > 0) {
+                        finalQuery.should(noEntityTermBuilder);
+                    }
+
+                    finalQuery.should(keywordsBuilder);
+                    newBuilder.setQuery(finalQuery);
                 }
             }
             logger.info(newBuilder.toString());
