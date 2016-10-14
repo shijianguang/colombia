@@ -3,12 +3,12 @@ package com.microsoft.xuetang.util;
 /**
  * Created by jiash on 7/29/2016.
  */
-public class SamplePair<V1, V2> {
+public class SimplePair<V1, V2> {
     private V1 first;
     private V2 second;
 
-    public SamplePair() {};
-    public SamplePair(V1 first, V2 second) {
+    public SimplePair() {};
+    public SimplePair(V1 first, V2 second) {
         this.first = first;
         this.second = second;
     }
@@ -27,5 +27,9 @@ public class SamplePair<V1, V2> {
 
     public void setSecond(V2 second) {
         this.second = second;
+    }
+
+    public String toString() {
+        return String.format("[%s:%s]", first, second);
     }
 }

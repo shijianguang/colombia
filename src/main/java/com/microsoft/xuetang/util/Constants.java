@@ -72,8 +72,11 @@ public class Constants {
     };
 
     public static class Log {
+        public final static String PERFORMANCE_LOGGER_NAME = "performance_logger";
+        public final static String ANALYSIS_LOGGER_NAME = "analysis_logger";
         public final static String SEARCH_DESC = "search";
         public final static String PERFORMANCE_DESC = "performance";
+        public final static String SYSTEM_METRIC_DESC = "system.metric";
     }
 
     public static String[] AUTOINCREASE_ID2STRING_CACHE;
@@ -92,4 +95,12 @@ public class Constants {
     public static final SearchApiResponseV2 EMPTY_SEARCH_API_RESPONSE = new SearchApiResponseV2();
 
     public static final char[] NEW_LINE_CHARACTER_ARRAY = new char[] {'\r', '\n'};
+
+    public static class Metric {
+        public static String KEY_ARGS_SEPARATOR = "-";
+        public static String ARGS_SEPARATOR = ".";
+    }
+
+    public static String WIKI_BING_FLIGHT = "academicflt10";
+    public static String WEB_BING_FLIGHT = "academicflt11";
 }

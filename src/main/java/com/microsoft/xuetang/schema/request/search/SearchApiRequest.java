@@ -3,13 +3,12 @@ package com.microsoft.xuetang.schema.request.search;
 import com.microsoft.xuetang.Exception.ParamCheckException;
 import com.microsoft.xuetang.bean.internal.response.QueryKeyword;
 import com.microsoft.xuetang.schema.request.Request;
-import org.apache.commons.lang.StringUtils;
+import com.microsoft.xuetang.util.Constants;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by jiash on 7/29/2016.
@@ -25,6 +24,10 @@ public class SearchApiRequest extends Request {
     private List<QueryKeyword> keywords;
 
     public SearchApiRequest() {
+    }
+
+    public SearchApiRequest(Request request) {
+        super(request);
     }
 
     public SearchApiRequest(SearchApiRequest other) {
@@ -87,6 +90,18 @@ public class SearchApiRequest extends Request {
     @JsonIgnore
     public void setOffsetInt(int offsetInt) {
         this.offsetInt = offsetInt;
+    }
+
+    @JsonIgnore
+    public void setAllTypeCount(int count) {
+        this.countInt = count;
+        this.count = Constants.AUTOINCREASE_ID2STRING_CACHE[count];
+    }
+
+    @JsonIgnore
+    public void setAllTypeOffset(int offset) {
+        this.offsetInt = offset;
+        this.offset = Constants.AUTOINCREASE_ID2STRING_CACHE[offset];
     }
 
     public List<QueryKeyword> getKeywords() {

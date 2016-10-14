@@ -5,6 +5,7 @@ import com.microsoft.xuetang.bean.internal.response.BingAcademicSearchEntity;
 import com.microsoft.xuetang.internalrpc.response.BingAcademicSearchResponse;
 import com.microsoft.xuetang.internalrpc.response.BingVideoSearchResponse;
 import com.microsoft.xuetang.internalrpc.response.BingWebSearchResponse;
+import com.microsoft.xuetang.schema.request.search.SearchApiRequest;
 import com.microsoft.xuetang.util.JsonUtil;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.JsonNode;
@@ -23,7 +24,11 @@ public class BingHttpComponent extends BaseHttpComponent {
 
     private static final Pattern HIGHLIGHT_PATTERN = Pattern.compile("\uE000|\uE001");
 
-    public static BingWebSearchResponse getBingWebSearchResponse(String query, String count, String offset, String flight) throws Exception {
+    public static BingWebSearchResponse getBingWebSearchResponse(SearchApiRequest searchApiRequest) throws Exception {
+        String query = searchApiRequest.getQuery();
+        String count = searchApiRequest.getCount();
+        String offset = searchApiRequest.getOffset();
+        String flight = searchApiRequest.getFlight();
         if(query == null || count == null || offset == null) {
             return null;
         }
@@ -63,7 +68,10 @@ public class BingHttpComponent extends BaseHttpComponent {
         return response;
     }
 
-    public static BingAcademicSearchResponse getBingAcademicResponse(String query, String count, String offset) throws Exception {
+    public static BingAcademicSearchResponse getBingAcademicResponse(SearchApiRequest searchApiRequest) throws Exception {
+        String query = searchApiRequest.getQuery();
+        String count = searchApiRequest.getCount();
+        String offset = searchApiRequest.getOffset();
         Map<String, Object> param = new HashMap<String, Object>()
         {
             {
@@ -74,7 +82,8 @@ public class BingHttpComponent extends BaseHttpComponent {
         };
         String responseString = BaseHttpComponent.fluentSyncGet(BING_ACADEMIC_URL, param, String.class);
 
-        return string2BingAcademicSearchResponse(responseString);
+        BingAcademicSearchResponse response = string2BingAcademicSearchResponse(responseString);
+        return response;
     }
 
     static BingAcademicSearchResponse string2BingAcademicSearchResponse(String response) throws IOException {

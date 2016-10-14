@@ -1,6 +1,6 @@
 package com.microsoft.xuetang.util;
 
-
+import com.google.common.base.Joiner;
 import com.microsoft.xuetang.bean.SearchList;
 import com.microsoft.xuetang.bean.log.*;
 import com.microsoft.xuetang.bean.schema.response.search.SearchElementData;
@@ -8,11 +8,9 @@ import com.microsoft.xuetang.schema.request.Request;
 import com.microsoft.xuetang.schema.request.search.SearchApiRequest;
 import com.microsoft.xuetang.schema.request.search.TypeSearchApiRequest;
 import com.microsoft.xuetang.schema.response.search.SearchApiResponseV2;
-import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,7 +20,7 @@ import java.util.stream.Collectors;
 public class LogUtils {
 
     public static void debugLogSearchElementList(Logger logger, String desc, SearchList<SearchElementData> searchList) {
-        if(logger.isDebugEnabled()) {
+        if (logger.isDebugEnabled()) {
             SearchInstrumentLog searchInstrumentLog = new SearchInstrumentLog();
             searchInstrumentLog.setDesc(desc);
             SearchBaseListLog result = formatSearchElementListToString(searchList, desc);
@@ -36,15 +34,16 @@ public class LogUtils {
         }
     }
 
-    public static void infoLogSearchRequestAndResponse(Logger logger, SearchApiRequest request, SearchList<SearchElementData> searchList) {
-        if(logger.isInfoEnabled()) {
-            if(request == null) {
+    public static void infoLogSearchRequestAndResponse(Logger logger, SearchApiRequest request,
+            SearchList<SearchElementData> searchList) {
+        if (logger.isInfoEnabled()) {
+            if (request == null) {
                 return;
             }
             String type = null;
-            if(request instanceof TypeSearchApiRequest) {
-                String tmpType = ((TypeSearchApiRequest)request).getType();
-                if(tmpType != null) {
+            if (request instanceof TypeSearchApiRequest) {
+                String tmpType = ((TypeSearchApiRequest) request).getType();
+                if (tmpType != null) {
                     type = tmpType;
                 }
             }
@@ -77,9 +76,10 @@ public class LogUtils {
         }
     }
 
-    public static void infoLogSearchRequestAndResponse(Logger logger, SearchApiRequest request, SearchApiResponseV2 response) {
-        if(logger.isInfoEnabled()) {
-            if(request == null) {
+    public static void infoLogSearchRequestAndResponse(Logger logger, SearchApiRequest request,
+            SearchApiResponseV2 response) {
+        if (logger.isInfoEnabled()) {
+            if (request == null) {
                 return;
             }
 
@@ -99,24 +99,29 @@ public class LogUtils {
 
             MultiSearchResultLog multiSearchResultLog = new MultiSearchResultLog();
 
-            SearchBaseListLog wikiResult = formatSearchElementListToString(response.getWikiList(), Constants.DataType.WIKI);
-            if(wikiResult != null) {
+            SearchBaseListLog wikiResult = formatSearchElementListToString(response.getWikiList(),
+                    Constants.DataType.WIKI);
+            if (wikiResult != null) {
                 multiSearchResultLog.setEntityLog(Constants.DataType.WIKI, wikiResult);
             }
-            SearchBaseListLog webResult = formatSearchElementListToString(response.getWebList(), Constants.DataType.WEB);
-            if(webResult != null) {
+            SearchBaseListLog webResult = formatSearchElementListToString(response.getWebList(),
+                    Constants.DataType.WEB);
+            if (webResult != null) {
                 multiSearchResultLog.setEntityLog(Constants.DataType.WEB, webResult);
             }
-            SearchBaseListLog pptResult = formatSearchElementListToString(response.getMultiMediaList().getSearchList(Constants.DataType.PPT), Constants.DataType.PPT);
-            if(pptResult != null) {
+            SearchBaseListLog pptResult = formatSearchElementListToString(
+                    response.getMultiMediaList().getSearchList(Constants.DataType.PPT), Constants.DataType.PPT);
+            if (pptResult != null) {
                 multiSearchResultLog.setEntityLog(Constants.DataType.PPT, pptResult);
             }
-            SearchBaseListLog videoResult = formatSearchElementListToString(response.getMultiMediaList().getSearchList(Constants.DataType.VIDEO), Constants.DataType.VIDEO);
-            if(videoResult != null) {
+            SearchBaseListLog videoResult = formatSearchElementListToString(
+                    response.getMultiMediaList().getSearchList(Constants.DataType.VIDEO), Constants.DataType.VIDEO);
+            if (videoResult != null) {
                 multiSearchResultLog.setEntityLog(Constants.DataType.VIDEO, videoResult);
             }
-            SearchBaseListLog paperResult = formatSearchElementListToString(response.getPaperList(), Constants.DataType.PAPER);
-            if(paperResult != null) {
+            SearchBaseListLog paperResult = formatSearchElementListToString(response.getPaperList(),
+                    Constants.DataType.PAPER);
+            if (paperResult != null) {
                 multiSearchResultLog.setEntityLog(Constants.DataType.PAPER, paperResult);
             }
 
@@ -130,9 +135,10 @@ public class LogUtils {
         }
     }
 
-    private static SearchBaseListLog formatSearchElementListToString(SearchList<SearchElementData> searchList, String desc) {
+    private static SearchBaseListLog formatSearchElementListToString(SearchList<SearchElementData> searchList,
+            String desc) {
         SearchBaseListLog searchResultLog = new SearchBaseListLog();
-        if(searchList == null || searchList.getList() == null || searchList.getList().size() == 0) {
+        if (searchList == null || searchList.getList() == null || searchList.getList().size() == 0) {
             return null;
         }
         List<SearchLogEntity> entityLogs = searchList.getList().stream()
@@ -144,16 +150,21 @@ public class LogUtils {
         return searchResultLog;
     }
 
-
-    public static void infoLogPerformance(Logger logger, Request request, String key, long costInMillis) {
+    public static void infoLogPerformance(Logger logger, String requestUri, String traceId, long requestTime,
+            long costInMillis, String key, String... args) {
 
         PerformanceInstrumentLog performanceInstrumentLog = new PerformanceInstrumentLog();
-        performanceInstrumentLog.setRequestUri(request.getRequestUri());
-        performanceInstrumentLog.setTraceId(request.getTraceId());
-        performanceInstrumentLog.setRequestTime(request.getTimestamp());
+        performanceInstrumentLog.setRequestUri(requestUri);
+        performanceInstrumentLog.setTraceId(traceId);
+        performanceInstrumentLog.setRequestTime(requestTime);
         performanceInstrumentLog.setDesc(Constants.Log.PERFORMANCE_DESC);
-        performanceInstrumentLog.setKey(key);
         performanceInstrumentLog.setCostInMillis(costInMillis);
+        if (args != null && args.length > 0) {
+            performanceInstrumentLog.setKey(String.format("%s%s%s", key, Constants.Metric.KEY_ARGS_SEPARATOR,
+                    Joiner.on(Constants.Metric.ARGS_SEPARATOR).join(args)));
+        } else {
+            performanceInstrumentLog.setKey(key);
+        }
 
         try {
             logger.info(JsonUtil.object2String(performanceInstrumentLog));
@@ -162,20 +173,47 @@ public class LogUtils {
 
     }
 
-    public static void infoLogPerformance(Logger logger, String requestUri, String traceId, long requestTime, String key, long costInMillis) {
+    public static void infoLogPerformance(Logger logger, Request request,
+            long costInMillis, String key, String... args) {
 
         PerformanceInstrumentLog performanceInstrumentLog = new PerformanceInstrumentLog();
-        performanceInstrumentLog.setRequestUri(requestUri);
-        performanceInstrumentLog.setTraceId(traceId);
-        performanceInstrumentLog.setRequestTime(requestTime);
+        performanceInstrumentLog.setRequestUri(request.getRequestUri());
+        performanceInstrumentLog.setTraceId(request.getTraceId());
+        performanceInstrumentLog.setRequestTime(request.getTimestamp());
         performanceInstrumentLog.setDesc(Constants.Log.PERFORMANCE_DESC);
-        performanceInstrumentLog.setKey(key);
         performanceInstrumentLog.setCostInMillis(costInMillis);
+        performanceInstrumentLog.setKey(getFinalKey(key, args));
 
         try {
             logger.info(JsonUtil.object2String(performanceInstrumentLog));
         } catch (IOException e) {
         }
 
+    }
+
+    public static void infoLogMetric(Logger logger, long first, String key, String... args) {
+        infoLogMetric(logger, first, 0, key, args);
+    }
+
+    public static void infoLogMetric(Logger logger, long first, long second, String key, String... args) {
+        String finalKey = getFinalKey(key, args);
+
+        SystemMetricInstrumentLog systemMetricInstrumentLog = new SystemMetricInstrumentLog(finalKey, first, second);
+        systemMetricInstrumentLog.setDesc(Constants.Log.SYSTEM_METRIC_DESC);
+
+        try {
+            logger.info(JsonUtil.object2String(systemMetricInstrumentLog));
+        } catch (IOException e) {
+        }
+
+    }
+
+    private static String getFinalKey(String key, String... args) {
+        if (args != null && args.length > 0) {
+            return String.format("%s%s%s", key, Constants.Metric.KEY_ARGS_SEPARATOR,
+                    Joiner.on(Constants.Metric.ARGS_SEPARATOR).join(args));
+        } else {
+            return key;
+        }
     }
 }

@@ -125,12 +125,8 @@ public class SearchElementData {
         }
         SearchElementData data = new SearchElementData();
         data.setType(type);
-        String url = entity.getUrl();
-        if(StringUtils.isNotEmpty(url)) {
-            data.setUrl(url);
-            data.setId(DigestUtils.md5DigestAsHex(url.getBytes()));
-        }
-
+        data.setUrl(entity.getUrl());
+        data.setId(entity.getId());
         data.setTitle(entity.getName());
         data.setImageUrl(entity.getThumbnailUrl());
         data.setSnippet(entity.getSnippet());

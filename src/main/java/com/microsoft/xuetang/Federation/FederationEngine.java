@@ -32,7 +32,7 @@ public class FederationEngine {
                 T result = (T) execution.execute(context);
                 long endTime = System.currentTimeMillis();
                 Request request = (Request) context.get("request");
-                LogUtils.infoLogPerformance(performanceLogger, request, String.format("MatchType.%s", context.getName()), endTime - startTime);
+                LogUtils.infoLogPerformance(performanceLogger, request, endTime - startTime, "matchtype", context.getName());
                 return result;
             }
         });

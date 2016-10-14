@@ -4,9 +4,9 @@ import com.microsoft.xuetang.Federation.FederationContext;
 import com.microsoft.xuetang.Federation.FederationEngine;
 import com.microsoft.xuetang.Federation.FederationExecution;
 import com.microsoft.xuetang.bean.SearchList;
-import com.microsoft.xuetang.bean.internal.response.DialogueEngineSearchEntity;
 import com.microsoft.xuetang.bean.internal.response.BingVideoSearchEntity;
 import com.microsoft.xuetang.bean.internal.response.BingWebResultEntity;
+import com.microsoft.xuetang.bean.internal.response.DialogueEngineSearchEntity;
 import com.microsoft.xuetang.bean.internal.response.PPTSearchViewEntity;
 import com.microsoft.xuetang.bean.schema.response.detail.WebDetailData;
 import com.microsoft.xuetang.bean.schema.response.search.BaseSearchViewEntity;
@@ -19,8 +19,8 @@ import com.microsoft.xuetang.component.ElasticSearchComponent;
 import com.microsoft.xuetang.internalrpc.response.*;
 import com.microsoft.xuetang.schema.request.search.SearchApiRequest;
 import com.microsoft.xuetang.schema.response.search.SearchApiResponse;
-import com.microsoft.xuetang.util.Constants;
 import com.microsoft.xuetang.util.CommonUtils;
+import com.microsoft.xuetang.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,7 +110,7 @@ public class DataService {
 
         BingWebSearchResponse response = null;
         try {
-            response = BingHttpComponent.getBingWebSearchResponse(searchApiRequest.getQuery(), searchApiRequest.getCount(), searchApiRequest.getOffset(), searchApiRequest.getFlight());
+            response = BingHttpComponent.getBingWebSearchResponse(searchApiRequest);
         } catch (Exception e) {
             logger.error("Request bing web result api encounter Exception. Message: {}", e.getMessage());
         }

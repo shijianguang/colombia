@@ -3,7 +3,6 @@ package com.microsoft.xuetang.controller;
 import com.microsoft.xuetang.aspect.ApiRequest;
 import com.microsoft.xuetang.bean.schema.response.detail.MultiMediaDetailData;
 import com.microsoft.xuetang.bean.schema.response.detail.PaperProfileData;
-import com.microsoft.xuetang.bean.schema.response.detail.WebDetailData;
 import com.microsoft.xuetang.schema.request.detail.BatchDetailDataApiRequest;
 import com.microsoft.xuetang.schema.request.detail.DetailDataApiRequest;
 import com.microsoft.xuetang.schema.request.detail.JsonPDetailDataApiRequest;

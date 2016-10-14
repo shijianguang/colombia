@@ -1,25 +1,22 @@
 package com.microsoft.xuetang.service;
 
-import com.google.common.base.Function;
-import com.google.common.collect.Lists;
 import com.microsoft.xuetang.Federation.FederationContext;
 import com.microsoft.xuetang.Federation.FederationEngine;
 import com.microsoft.xuetang.Federation.FederationExecution;
 import com.microsoft.xuetang.bean.MultiSearchList;
 import com.microsoft.xuetang.bean.SearchList;
-import com.microsoft.xuetang.bean.cache.WebFeatureEntity;
 import com.microsoft.xuetang.bean.internal.response.BingAcademicSearchEntity;
-import com.microsoft.xuetang.bean.internal.response.DialogueEngineSearchEntity;
 import com.microsoft.xuetang.bean.internal.response.BingWebResultEntity;
+import com.microsoft.xuetang.bean.internal.response.DialogueEngineSearchEntity;
 import com.microsoft.xuetang.bean.schema.response.search.BaseSearchViewEntity;
 import com.microsoft.xuetang.bean.schema.response.search.SearchElementData;
-import com.microsoft.xuetang.component.*;
 import com.microsoft.xuetang.component.Adapter.MultiMediaSearchAdaper;
+import com.microsoft.xuetang.component.*;
 import com.microsoft.xuetang.internalrpc.response.*;
 import com.microsoft.xuetang.schema.request.search.SearchApiRequest;
 import com.microsoft.xuetang.schema.response.search.SearchApiResponseV2;
-import com.microsoft.xuetang.util.Constants;
 import com.microsoft.xuetang.util.CommonUtils;
+import com.microsoft.xuetang.util.Constants;
 import com.microsoft.xuetang.util.LogUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +31,10 @@ import java.util.*;
 @Service
 public class SearchService {
     private static final Logger logger = LoggerFactory.getLogger(SearchService.class);
+    private static final Logger performancelogger = LoggerFactory.getLogger(Constants.Log.PERFORMANCE_LOGGER_NAME);
+
+    @Autowired
+    private BingComponent bingComponent;
 
     @Autowired
     private ElasticSearchComponent elasticSearchComponent;
@@ -104,7 +105,7 @@ public class SearchService {
         newSearchApiRequest.setOffset(String.valueOf(actualOffset));
         newSearchApiRequest.setCountInt(Constants.BING_ONCE_CALL_COUNT);
         newSearchApiRequest.setCount(Constants.Bing_ONCE_CALL_COUNT_IN_STRING);
-        newSearchApiRequest.setFlight("academicflt10");
+        newSearchApiRequest.setFlight(Constants.WIKI_BING_FLIGHT);
         return bingSearch(newSearchApiRequest, Constants.DataType.WIKI, true);
     }
 
@@ -115,26 +116,19 @@ public class SearchService {
         newSearchApiRequest.setOffset(String.valueOf(actualOffset));
         newSearchApiRequest.setCountInt(Constants.BING_ONCE_CALL_COUNT);
         newSearchApiRequest.setCount(Constants.Bing_ONCE_CALL_COUNT_IN_STRING);
-        newSearchApiRequest.setFlight("academicflt11");
+        newSearchApiRequest.setFlight(Constants.WEB_BING_FLIGHT);
         return bingSearch(newSearchApiRequest, Constants.DataType.WEB, true);
     }
 
 
     public SearchList<SearchElementData> bingSearch(SearchApiRequest searchApiRequest, String type, boolean needRerank) {
-        long t1 = System.currentTimeMillis();
-        BingWebSearchResponse response = null;
-        try {
-            response = BingHttpComponent.getBingWebSearchResponse(searchApiRequest.getQuery(), searchApiRequest.getCount(), searchApiRequest.getOffset(), searchApiRequest.getFlight());
-        } catch (Exception e) {
-            logger.error("Request bing search result api with type {} encounter Exception. Message: {}", type, e.getMessage());
-        }
+        BingWebSearchResponse response = bingComponent.getBingWebSearchResponseWithFeature(searchApiRequest, type);
 
         if (response == null || response.getWebPages() == null || response.getWebPages().getValue() == null) {
-            logger.error("Request bing search result api with type {} get no result", type);
+            logger.error("Request bing search result api get no result. TraceId: {}. Flight: {}.", searchApiRequest.getTraceId(), searchApiRequest.getFlight());
             return null;
         }
 
-        long t2 = System.currentTimeMillis();
         SearchList<SearchElementData> result = new SearchList<>();
 
         List<BingWebResultEntity> bingResultList = response.getWebPages().getValue();
@@ -144,47 +138,11 @@ public class SearchService {
                 result.add(data);
             }
         }
-        LogUtils.debugLogSearchElementList(logger, String.format("Bing search with flight: %s", searchApiRequest.getFlight()), result);
-        long t3 = System.currentTimeMillis();
-        List<SearchElementData> elementDataList = result.getList();
-        List<SearchElementData> newElementDataList = new ArrayList<>();
-        if (elementDataList != null) {
-            List<String> idList = Lists.transform(elementDataList, new Function<SearchElementData, String>() {
-                @Override
-                public String apply(SearchElementData input) {
-                    return input.getId();
-                }
-            });
-            String[] kvType = Constants.DataTypeKVMap.get(type);
-            Map<String, WebFeatureEntity> id2Feature = featureServerComponent.get(kvType[0], kvType[1], idList);
-            for (SearchElementData data : elementDataList) {
-                String id = data.getId();
-                WebFeatureEntity feature = id2Feature.get(id);
-                if (feature != null) {
-                    if (feature.getImageUrl() != null) {
-                        data.setImageUrl(feature.getImageUrl());
-                    }
-                    if (feature.getTitle() != null) {
-                        data.setTitle(feature.getTitle());
-                    }
 
-                    newElementDataList.add(data);
-                }
-            }
-        }
-
-        logger.info("Bing search type: {} result count: {}, after backfill feature result count: {}", type, elementDataList.size(), newElementDataList.size());
-
-        featureServerComponent.backFillIconUrlData(newElementDataList);
-        result.setCount(newElementDataList.size());
-        result.setList(newElementDataList);
+        featureServerComponent.backFillIconUrlData(result.getList());
         if(needRerank) {
             result = webReRank(result);
         }
-        long t4 = System.currentTimeMillis();
-        LogUtils.debugLogSearchElementList(logger, String.format("Bing search with flight after meta back fill: %s", searchApiRequest.getFlight()), result);
-
-        logger.info("Bing Api time: {}, parser item: {}, backfill time: {}", t2 - t1, t3 - t2, t4 - t3);
 
         return result;
     }
@@ -247,7 +205,7 @@ public class SearchService {
                 return null;
             }
         } catch (Exception e) {
-            logger.info("Search video data error. Query: {}, c ount: {}, offset: {}. Reason is: {}", searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset(), e.getMessage());
+            logger.info("Search video data error. TracdId: {}. Query: {}, count: {}, offset: {}. Reason is: {}", searchRequest.getTraceId(), searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset(), e.getMessage());
         }
         return null;
     }
@@ -263,7 +221,7 @@ public class SearchService {
                 return null;
             }
         } catch (Exception e) {
-            logger.info("Search ppt data error. Query: {}, count: {}, offset: {}. Reason is: {}", searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset(), e.getMessage());
+            logger.info("Search ppt data error. TracdId: {}. Query: {}, count: {}, offset: {}. Reason is: {}", searchRequest.getTraceId(), searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset(), e.getMessage());
         }
 
         return null;
@@ -309,14 +267,20 @@ public class SearchService {
     }
 
     public SearchList<SearchElementData> academicSearch(SearchApiRequest searchRequest) {
+        long t1 = System.currentTimeMillis();
         BingAcademicSearchResponse searchResponse = null;
         try {
-            searchResponse = BingHttpComponent.getBingAcademicResponse(searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset());
+            searchResponse = BingHttpComponent.getBingAcademicResponse(searchRequest);
         } catch (Exception e) {
-            logger.error("Request bing academic search api encounter exception. Message: {}", e.getMessage());
+            logger.error("Request bing academic search api encounter exception. TraceId: {}. Message: {}", searchRequest.getTraceId(), e.getMessage());
         }
+
+        long t2 = System.currentTimeMillis();
+
+        LogUtils.infoLogPerformance(performancelogger, searchRequest, t2 - t1, "http", "bing", "academic");
+
         if (searchResponse == null || searchResponse.getResult() == null || searchResponse.getResult().size() == 0) {
-            logger.error("Request bing academic search api get no result");
+            logger.error("Request bing academic search api get no result. TraceId: {}.", searchRequest.getTraceId());
             return null;
         }
 

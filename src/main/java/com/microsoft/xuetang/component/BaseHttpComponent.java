@@ -4,9 +4,9 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 import com.microsoft.xuetang.Exception.HttpRequestException;
 import com.microsoft.xuetang.internalrpc.response.ErrorResponse;
-import com.microsoft.xuetang.util.JsonUtil;
-import com.microsoft.xuetang.util.SamplePair;
 import com.microsoft.xuetang.util.CommonUtils;
+import com.microsoft.xuetang.util.JsonUtil;
+import com.microsoft.xuetang.util.SimplePair;
 import com.ning.http.client.AsyncHttpClient;
 import com.ning.http.client.AsyncHttpClientConfig;
 import com.ning.http.client.Response;
@@ -116,24 +116,24 @@ public class BaseHttpComponent implements DisposableBean {
         return future;
     }
 
-    public static Map<String, Object> asyncGet(Map<String, SamplePair<Map<String, Object>, Class>> param) {
-        Map<String, SamplePair<Future<Response>, Class>> futureMap = new HashMap<>();
+    public static Map<String, Object> asyncGet(Map<String, SimplePair<Map<String, Object>, Class>> param) {
+        Map<String, SimplePair<Future<Response>, Class>> futureMap = new HashMap<>();
         if (param != null) {
-            for(Map.Entry<String, SamplePair<Map<String, Object>, Class>> entry : param.entrySet()) {
+            for(Map.Entry<String, SimplePair<Map<String, Object>, Class>> entry : param.entrySet()) {
                 String url = entry.getKey();
-                SamplePair<Map<String, Object>, Class> data = entry.getValue();
+                SimplePair<Map<String, Object>, Class> data = entry.getValue();
 
                 Map<String, Object> paramMap = data.getFirst();
 
                 Future<Response> responseFuture = asyncGet(url, paramMap);
-                futureMap.put(url, new SamplePair<>(responseFuture, data.getSecond()));
+                futureMap.put(url, new SimplePair<>(responseFuture, data.getSecond()));
             }
         }
         Map<String, Object> result = new HashMap<>();
 
-        for(Map.Entry<String, SamplePair<Future<Response>, Class>> entry : futureMap.entrySet()) {
+        for(Map.Entry<String, SimplePair<Future<Response>, Class>> entry : futureMap.entrySet()) {
             String url = entry.getKey();
-            SamplePair<Future<Response>, Class> data = entry.getValue();
+            SimplePair<Future<Response>, Class> data = entry.getValue();
             Future<Response> responseFuture = data.getFirst();
 
             Object value = null;

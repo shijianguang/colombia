@@ -7,6 +7,7 @@ import com.microsoft.xuetang.bean.schema.response.detail.WebDetailData;
 import com.microsoft.xuetang.bean.schema.response.search.SearchElementData;
 import com.microsoft.xuetang.util.ConfigUtil;
 import com.microsoft.xuetang.util.Constants;
+import com.microsoft.xuetang.util.LogUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -25,6 +26,7 @@ import java.util.Map;
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class FeatureServerComponent {
     private static final Logger logger = LoggerFactory.getLogger(FeatureServerComponent.class);
+    private static final Logger performancelogger = LoggerFactory.getLogger("performance_logger");
     private static RemoteKVStorage remoteKVStorage = RemoteKVStorage.getRemoteKVStorage();
 
     private static Cache<String, WebFeatureEntity> localCache = CacheBuilder.newBuilder()
@@ -55,23 +57,28 @@ public class FeatureServerComponent {
             }
         }
 
-        if(notExist.size() == 0) {
-            return map;
-        }
+        int totalSize = idList.size();
+        int cacheHitSize = totalSize - notExist.size();
 
-        Map<String, WebFeatureEntity> remote = remoteKVStorage.get(db, namespace, notExist);
-        if(remote != null) {
-            for(String id : notExist) {
-                WebFeatureEntity value = remote.get(id);
-                if (value == null) {
-                    localCache.put(id, NOT_EXIST_KEY);
-                } else {
-                    localCache.put(id, value);
+        if(notExist.size() > 0) {
+            Map<String, WebFeatureEntity> remote = remoteKVStorage.get(db, namespace, notExist);
+            if (remote != null) {
+                for (String id : notExist) {
+                    WebFeatureEntity value = remote.get(id);
+                    if (value == null) {
+                        localCache.put(id, NOT_EXIST_KEY);
+                    } else {
+                        localCache.put(id, value);
+                    }
+                    map.put(id, value);
                 }
-                map.put(id, value);
-            }
 
+            }
         }
+
+        LogUtils.infoLogMetric(performancelogger, cacheHitSize, totalSize, "cache", "hitrate");
+        LogUtils.infoLogMetric(performancelogger, localCache.size(), "cache", "size");
+
         return map;
     }
 

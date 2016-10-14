@@ -1,15 +1,15 @@
 package com.microsoft.xuetang.controller;
 
 import com.microsoft.xuetang.aspect.ApiRequest;
-import com.microsoft.xuetang.bean.MultiSearchList;
 import com.microsoft.xuetang.bean.SearchList;
 import com.microsoft.xuetang.bean.schema.response.search.SearchElementData;
 import com.microsoft.xuetang.component.QueryUnderstandingComponent;
 import com.microsoft.xuetang.internalrpc.response.QueryUnderstandingResponse;
+import com.microsoft.xuetang.schema.request.Request;
 import com.microsoft.xuetang.schema.request.search.SearchApiRequest;
 import com.microsoft.xuetang.schema.request.search.TypeSearchApiRequest;
 import com.microsoft.xuetang.schema.response.Response;
-import com.microsoft.xuetang.schema.response.search.PopularSearchResponse;
+import com.microsoft.xuetang.schema.response.search.QueryBallResponse;
 import com.microsoft.xuetang.schema.response.search.SearchApiResponseV2;
 import com.microsoft.xuetang.service.SearchService;
 import com.microsoft.xuetang.util.Constants;
@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SearchApiV2Controller {
 
     private static final Logger logger = LoggerFactory.getLogger(SearchApiV2Controller.class);
-    private static final Logger analysisLogger = LoggerFactory.getLogger("analysis_logger");
+    private static final Logger analysisLogger = LoggerFactory.getLogger(Constants.Log.ANALYSIS_LOGGER_NAME);
     @Autowired
     private SearchService searchService;
 
@@ -93,5 +93,12 @@ public class SearchApiV2Controller {
 
         LogUtils.infoLogSearchRequestAndResponse(analysisLogger, param, ret);
         return new Response<>(ret);
+    }
+
+    @ApiRequest
+    @ResponseBody
+    @RequestMapping(value = "v2/queryBall", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json")
+    public Response queryBall(HttpServletRequest request, HttpServletResponse response, Request param) {
+        return new Response<>(new QueryBallResponse());
     }
 }

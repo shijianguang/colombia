@@ -6,6 +6,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
+import java.util.List;
+import java.util.Random;
+import java.util.RandomAccess;
 
 /**
  * Created by jiash on 8/1/2016.
@@ -128,5 +131,39 @@ public class CommonUtils {
         }
     }
 
+    /**
+     * For now list must be implement RandomAccess interface
+     * @param list
+     * @param start
+     * @param end
+     * @return Return true if the list has been shuffled. Otherwise return false
+     */
+    public static boolean shuffle(List<?> list, int start, int end) {
+        return shuffle(list, start, end, new Random());
+    }
+
+    public static boolean shuffle(List<?> list, int start, int end, Random random) {
+        if(list == null) {
+            return false;
+        }
+        int size = list.size();
+        end = end > size ? size : end;
+        if(start >= end) {
+            return false;
+        }
+        if (list instanceof RandomAccess) {
+            int terminateBound = start + 1;
+            for (int i = end; i > terminateBound; i--)
+                swap(list, i-1, start + random.nextInt(i - start));
+            return true;
+        }
+
+        return false;
+    }
+
+    public static void swap(List<?> list, int i, int j) {
+        final List l = list;
+        l.set(i, l.set(j, l.get(i)));
+    }
 
 }

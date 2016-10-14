@@ -5,6 +5,7 @@ import com.microsoft.xuetang.Exception.RspRuntimeException;
 import com.microsoft.xuetang.schema.request.Request;
 import com.microsoft.xuetang.schema.response.JsonPResponse;
 import com.microsoft.xuetang.schema.response.Response;
+import com.microsoft.xuetang.util.Constants;
 import com.microsoft.xuetang.util.LogUtils;
 import com.microsoft.xuetang.util.RspCodeMsg;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -32,7 +33,7 @@ import java.util.UUID;
 public class ApiRequestAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(ApiRequestAspect.class);
-    private static final Logger performancelogger = LoggerFactory.getLogger("performance_logger");
+    private static final Logger performancelogger = LoggerFactory.getLogger(Constants.Log.PERFORMANCE_LOGGER_NAME);
 
     /**
      * 定义 api 接口的切面，方法上有 ApiRequest 注解
@@ -119,7 +120,7 @@ public class ApiRequestAspect {
         } finally {
             // 记日志监控
             long time = System.currentTimeMillis() - start;
-            LogUtils.infoLogPerformance(performancelogger, requestUri, traceId, requestTime, "interface.total", time);
+            LogUtils.infoLogPerformance(performancelogger, requestUri, traceId, requestTime, time, "interface", "total");
         }
 
         return result;
