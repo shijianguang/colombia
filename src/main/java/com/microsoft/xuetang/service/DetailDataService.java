@@ -100,6 +100,12 @@ public class DetailDataService {
                     new ElasticSearchComponent.DefaultGetRequestAdapte(indexAndType[0], indexAndType[1]),
                     new MultiMediaGetDetailDataAdapter());
             richData.setKeywords(queryKeywordDedup(request.getQuery(), richData.getKeywords()));
+
+            // Now ppt is from slideshare. Slideshare is blocked in China. So return empty string can make
+            // front end hid "查看原网页" button. This is a temp solution. It should be controlled in data site
+            if(Constants.DataType.PPT.equals(request.getType())) {
+                richData.setUrl("");
+            }
             return richData;
         } catch (Exception e) {
             logger.error("Get {} detail data encounter fatal error. id: {}. Reason is: {}",
@@ -116,8 +122,18 @@ public class DetailDataService {
                     request.getIdList(),
                     new ElasticSearchComponent.DefaultMulitiGetRequestAdapte(indexAndType[0], indexAndType[1]),
                     new MultiMediaMultiGetDetailDataAdapter());
-            for(MultiMediaDetailData detailData : data.values()) {
-                detailData.setKeywords(queryKeywordDedup(request.getQuery(), detailData.getKeywords()));
+            if(Constants.DataType.PPT.equals(request.getType())) {
+                for (MultiMediaDetailData detailData : data.values()) {
+                    detailData.setKeywords(queryKeywordDedup(request.getQuery(), detailData.getKeywords()));
+
+                    // Now ppt is from slideshare. Slideshare is blocked in China. So return empty string can make
+                    // front end hid "查看原网页" button. This is a temp solution. It should be controlled in data site
+                    detailData.setUrl("");
+                }
+            } else {
+                for (MultiMediaDetailData detailData : data.values()) {
+                    detailData.setKeywords(queryKeywordDedup(request.getQuery(), detailData.getKeywords()));
+                }
             }
             return data;
         } catch (Exception e) {

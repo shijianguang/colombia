@@ -21,6 +21,9 @@ public class Request {
         this.deviceId = other.deviceId;
         this.agent = other.agent;
         this.traceId = other.traceId;
+        this.requestUri = other.requestUri;
+        this.token = other.token;
+        this.form = other.form;
         this.timestamp = other.timestamp;
         this.timeOut = other.timeOut;
 
