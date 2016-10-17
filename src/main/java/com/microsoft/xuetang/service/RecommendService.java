@@ -59,7 +59,7 @@ public class RecommendService {
                 });
 
         SearchApiRequest recallRequest = new SearchApiRequest(request);
-        recallRequest.setAllTypeCount(30);
+        recallRequest.setAllTypeCount(50);
         recallRequest.setAllTypeOffset(0);
         recallRequest.setFlight(Constants.WEB_BING_FLIGHT);
         recallRequest.setQuery(profile.get(0).getFirst());
@@ -111,7 +111,7 @@ public class RecommendService {
 
         SearchList<SearchElementData> academicResult = academicRecallResponseFederationContext.fluentGetResult();
 
-        SearchList<SearchElementData> result = rerank(webResult, pptResult, videoResult, academicResult, 10);
+        SearchList<SearchElementData> result = rerank(webResult, pptResult, videoResult, academicResult, 40);
 
         result.setQuery(profile.get(0).getFirst());
 
