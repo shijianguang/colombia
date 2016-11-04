@@ -1,6 +1,7 @@
 package com.microsoft.xuetang.internalrpc.response;
 
 import com.microsoft.xuetang.bean.internal.response.QueryKeyword;
+import com.microsoft.xuetang.bean.internal.response.QueryRelatedEntity;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
 public class QueryUnderstandingResponse {
     private String query;
     private List<QueryKeyword> keywords;
+    private List<QueryRelatedEntity> relatedQuery;
 
     public String getQuery() {
         return query;
@@ -25,5 +27,13 @@ public class QueryUnderstandingResponse {
 
     public void setKeywords(List<QueryKeyword> keywords) {
         this.keywords = keywords;
+    }
+
+    public List<QueryRelatedEntity> getRelatedQuery() {
+        return relatedQuery;
+    }
+
+    public void setRelatedQuery(List<QueryRelatedEntity> relatedQuery) {
+        this.relatedQuery = relatedQuery;
     }
 }

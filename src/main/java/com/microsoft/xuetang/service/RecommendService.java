@@ -16,10 +16,12 @@ import com.microsoft.xuetang.component.*;
 import com.microsoft.xuetang.internalrpc.response.BingAcademicSearchResponse;
 import com.microsoft.xuetang.internalrpc.response.BingWebSearchResponse;
 import com.microsoft.xuetang.schema.request.Request;
+import com.microsoft.xuetang.schema.request.recommend.RecommendApiRequest;
 import com.microsoft.xuetang.schema.request.search.SearchApiRequest;
 import com.microsoft.xuetang.util.Constants;
 import com.microsoft.xuetang.util.LogUtils;
 import com.microsoft.xuetang.util.SimplePair;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,9 +50,11 @@ public class RecommendService {
     @Autowired
     private FeatureServerComponent featureServerComponent;
 
-    public SearchList<SearchElementData> recommend(Request request) {
-
-        List<SimplePair<String, Float>> profile = UserProfileComponent.getUserProfile();
+    public SearchList<SearchElementData> recommend(RecommendApiRequest request) {
+        String query = request.getQuery();
+        List<SimplePair<String, Float>> profile = StringUtils.isBlank(query) ?
+                UserProfileComponent.getUserProfile() :
+                UserProfileComponent.getUserProfile(query);
         List<QueryKeyword> queryKeywords = Lists.transform(profile,
                 new Function<SimplePair<String, Float>, QueryKeyword>() {
                     @Override public QueryKeyword apply(SimplePair<String, Float> input) {
@@ -59,12 +63,13 @@ public class RecommendService {
                 });
 
         SearchApiRequest recallRequest = new SearchApiRequest(request);
-        recallRequest.setAllTypeCount(50);
+        recallRequest.setAllTypeCount(100);
         recallRequest.setAllTypeOffset(0);
         recallRequest.setFlight(Constants.WEB_BING_FLIGHT);
         recallRequest.setQuery(profile.get(0).getFirst());
         recallRequest.setKeywords(queryKeywords);
-        FederationContext<SearchList<SearchElementData>> webRecallResponseFederationContext = new FederationContext<>("WebRecall");
+        FederationContext<SearchList<SearchElementData>> webRecallResponseFederationContext = new FederationContext<>(
+                "WebRecall");
         webRecallResponseFederationContext.put("request", recallRequest);
         federationEngine.submit(new FederationExecution<SearchList<BaseSearchViewEntity>>() {
             @Override
@@ -73,7 +78,8 @@ public class RecommendService {
             }
         }, webRecallResponseFederationContext);
 
-        FederationContext<SearchList<SearchElementData>> academicRecallResponseFederationContext = new FederationContext<>("AcademicRecall");
+        FederationContext<SearchList<SearchElementData>> academicRecallResponseFederationContext = new FederationContext<>(
+                "AcademicRecall");
         academicRecallResponseFederationContext.put("request", recallRequest);
         federationEngine.submit(new FederationExecution<SearchList<SearchElementData>>() {
             @Override
@@ -82,22 +88,28 @@ public class RecommendService {
             }
         }, academicRecallResponseFederationContext);
 
-
-        FederationContext<SearchList<SearchElementData>> pptRecallResponseFederationContext = new FederationContext<>("PPTRecall");
+        SearchApiRequest pptVideoRecallRequest = new SearchApiRequest(request);
+        recallRequest.setAllTypeCount(30);
+        recallRequest.setAllTypeOffset(0);
+        recallRequest.setQuery(profile.get(0).getFirst());
+        recallRequest.setKeywords(queryKeywords);
+        FederationContext<SearchList<SearchElementData>> pptRecallResponseFederationContext = new FederationContext<>(
+                "PPTRecall");
         pptRecallResponseFederationContext.put("request", recallRequest);
         federationEngine.submit(new FederationExecution<SearchList<SearchElementData>>() {
             @Override
             public SearchList<SearchElementData> execute(FederationContext context) throws Exception {
-                return pptRecall(recallRequest);
+                return pptRecall(pptVideoRecallRequest);
             }
         }, pptRecallResponseFederationContext);
 
-        FederationContext<SearchList<SearchElementData>> videoRecallResponseFederationContext = new FederationContext<>("VideoRecall");
+        FederationContext<SearchList<SearchElementData>> videoRecallResponseFederationContext = new FederationContext<>(
+                "VideoRecall");
         videoRecallResponseFederationContext.put("request", recallRequest);
         federationEngine.submit(new FederationExecution<SearchList<BaseSearchViewEntity>>() {
             @Override
             public SearchList<SearchElementData> execute(FederationContext context) throws Exception {
-                return videoRecall(recallRequest);
+                return videoRecall(pptVideoRecallRequest);
             }
         }, videoRecallResponseFederationContext);
 
@@ -105,13 +117,13 @@ public class RecommendService {
 
         SearchList<SearchElementData> videoResult = videoRecallResponseFederationContext.fluentGetResult();
 
-
         SearchList<SearchElementData> webResult = webRecallResponseFederationContext.fluentGetResult();
-
 
         SearchList<SearchElementData> academicResult = academicRecallResponseFederationContext.fluentGetResult();
 
-        SearchList<SearchElementData> result = rerank(webResult, pptResult, videoResult, academicResult, 40);
+        SearchList<SearchElementData> result = rerank(webResult, pptResult, videoResult, academicResult, 100);
+
+        result = result.range(request.getOffsetInt() * 10, 10);
 
         result.setQuery(profile.get(0).getFirst());
 
@@ -123,7 +135,8 @@ public class RecommendService {
         BingWebSearchResponse response = bingComponent.getBingWebSearchResponseWithFeature(searchApiRequest, type);
 
         if (response == null || response.getWebPages() == null || response.getWebPages().getValue() == null) {
-            logger.error("Request bing search recall result api get no result. TraceId: {}. Flight: {}.", searchApiRequest.getTraceId(), searchApiRequest.getFlight());
+            logger.error("Request bing search recall result api get no result. TraceId: {}. Flight: {}.",
+                    searchApiRequest.getTraceId(), searchApiRequest.getFlight());
             return null;
         }
 
@@ -144,16 +157,20 @@ public class RecommendService {
     public SearchList<SearchElementData> videoRecall(SearchApiRequest searchRequest) {
         String[] indexAndType = Constants.DataTypeIndexMap.get(Constants.DataType.VIDEO);
         try {
-            SearchList<SearchElementData> result = elasticSearchComponent.syncSearch(searchRequest, new MultiMediaRecommendAdaper.RequestAdaper(indexAndType[0], indexAndType[1]), new MultiMediaRecommendAdaper.ResponseAdaper());
+            SearchList<SearchElementData> result = elasticSearchComponent.syncSearch(searchRequest,
+                    new MultiMediaRecommendAdaper.RequestAdaper(indexAndType[0], indexAndType[1]),
+                    new MultiMediaRecommendAdaper.ResponseAdaper());
 
-            if(result != null) {
+            if (result != null) {
                 return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
             } else {
                 logger.error("Recall video data return null result");
                 return null;
             }
         } catch (Exception e) {
-            logger.info("Recall video data error. TracdId: {}. Query: {}, count: {}, offset: {}. Reason is: {}", searchRequest.getTraceId(), searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset(), e.getMessage());
+            logger.info("Recall video data error. TracdId: {}. Query: {}, count: {}, offset: {}. Reason is: {}",
+                    searchRequest.getTraceId(), searchRequest.getQuery(), searchRequest.getCount(),
+                    searchRequest.getOffset(), e.getMessage());
         }
         return null;
     }
@@ -161,15 +178,19 @@ public class RecommendService {
     public SearchList<SearchElementData> pptRecall(SearchApiRequest searchRequest) {
         String[] indexAndType = Constants.DataTypeIndexMap.get(Constants.DataType.PPT);
         try {
-            SearchList<SearchElementData> result = elasticSearchComponent.syncSearch(searchRequest, new MultiMediaRecommendAdaper.RequestAdaper(indexAndType[0], indexAndType[1]), new MultiMediaRecommendAdaper.ResponseAdaper());
-            if(result != null) {
+            SearchList<SearchElementData> result = elasticSearchComponent.syncSearch(searchRequest,
+                    new MultiMediaRecommendAdaper.RequestAdaper(indexAndType[0], indexAndType[1]),
+                    new MultiMediaRecommendAdaper.ResponseAdaper());
+            if (result != null) {
                 return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
             } else {
                 logger.error("Recall ppt data return null result");
                 return null;
             }
         } catch (Exception e) {
-            logger.info("Recall ppt data error. TracdId: {}. Query: {}, count: {}, offset: {}. Reason is: {}", searchRequest.getTraceId(), searchRequest.getQuery(), searchRequest.getCount(), searchRequest.getOffset(), e.getMessage());
+            logger.info("Recall ppt data error. TracdId: {}. Query: {}, count: {}, offset: {}. Reason is: {}",
+                    searchRequest.getTraceId(), searchRequest.getQuery(), searchRequest.getCount(),
+                    searchRequest.getOffset(), e.getMessage());
         }
 
         return null;
@@ -182,7 +203,8 @@ public class RecommendService {
         try {
             searchResponse = BingHttpComponent.getBingAcademicResponse(searchRequest);
         } catch (Exception e) {
-            logger.error("Request bing academic recall api encounter exception. TraceId: {}. Message: {}", searchRequest.getTraceId(), e.getMessage());
+            logger.error("Request bing academic recall api encounter exception. TraceId: {}. Message: {}",
+                    searchRequest.getTraceId(), e.getMessage());
         }
 
         long t2 = System.currentTimeMillis();
@@ -206,12 +228,14 @@ public class RecommendService {
         return result;
     }
 
-    public SearchList<SearchElementData> rerank(SearchList<SearchElementData> webRecallList, SearchList<SearchElementData> pptRecallList, SearchList<SearchElementData> videoRecallList, SearchList<SearchElementData> academicRecallList, int resultCount) {
+    public SearchList<SearchElementData> rerank(SearchList<SearchElementData> webRecallList,
+            SearchList<SearchElementData> pptRecallList, SearchList<SearchElementData> videoRecallList,
+            SearchList<SearchElementData> academicRecallList, int resultCount) {
         int batchSize = 5;
         Random random = new Random();
         webRecallList.shuffule(batchSize, random);
         SearchList<SearchElementData> result = new SearchList<>();
-        if(webRecallList == null) {
+        if (webRecallList == null) {
             return result;
         }
         int increment = 0;
@@ -219,55 +243,37 @@ public class RecommendService {
         int pptStart = 0;
         int videoStart = 0;
         int academicStart = 0;
-        while(webStart < webRecallList.getCount() && increment < resultCount) {
-            if(pptRecallList != null && increment % batchSize == 2) {
-                if(increment < batchSize) {
+        while (webStart < webRecallList.getCount() && increment < resultCount) {
+            if (pptRecallList != null && increment % batchSize == 2) {
+                if (increment < batchSize) {
                     SearchElementData data = pptRecallList.getData(pptStart);
                     pptStart += 1;
                     result.add(data);
                 } else {
-                    double display = random.nextDouble();
-                    if (Double.compare(display, 0.9) <= 0) {
-                        SearchElementData data = pptRecallList.radomGetInRange(pptStart, batchSize, random);
-                        pptStart += batchSize;
-                        result.add(data);
-                    } else {
-                        result.add(webRecallList.getData(webStart));
-                        ++webStart;
-                    }
+                    SearchElementData data = pptRecallList.radomGetInRange(pptStart, batchSize, random);
+                    pptStart += batchSize;
+                    result.add(data);
                 }
-            } else if(videoRecallList != null && increment % batchSize == 3) {
-                if(increment < batchSize) {
+            } else if (videoRecallList != null && increment % batchSize == 3) {
+                if (increment < batchSize) {
                     SearchElementData data = videoRecallList.getData(pptStart);
                     videoStart += 1;
                     result.add(data);
                 } else {
-                    double display = random.nextDouble();
-                    if (Double.compare(display, 0.9) <= 0) {
-                        SearchElementData data = videoRecallList.radomGetInRange(videoStart, batchSize, random);
-                        videoStart += batchSize;
-                        result.add(data);
-                    } else {
-                        result.add(webRecallList.getData(webStart));
-                        ++webStart;
-                    }
-                }
-            } else if (academicRecallList != null && increment % batchSize == 4) {
-                double display = random.nextDouble();
-                if(Double.compare(display, 0.15) <= 0) {
-                    SearchElementData data = academicRecallList.getData(academicStart);
-                    academicStart += 1;
+                    SearchElementData data = videoRecallList.radomGetInRange(videoStart, batchSize, random);
+                    videoStart += batchSize;
                     result.add(data);
-                } else {
-                    result.add(webRecallList.getData(webStart));
-                    ++ webStart;
                 }
+            } else if (academicRecallList != null && increment % 4 * batchSize == 19) {
+                SearchElementData data = academicRecallList.getData(academicStart);
+                academicStart += 1;
+                result.add(data);
             } else {
                 result.add(webRecallList.getData(webStart));
-                ++ webStart;
+                ++webStart;
             }
 
-            ++ increment;
+            ++increment;
         }
         return result;
     }

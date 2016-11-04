@@ -135,12 +135,6 @@ public class SearchApiRequest extends Request {
         }
 
         try {
-            offsetInt = Integer.parseInt(offset);
-        } catch (Throwable t) {
-            throw new ParamCheckException("offset is not a valid integer");
-        }
-
-        try {
             query = URLDecoder.decode(query, "UTF-8");
             query = query.trim().toLowerCase();
         } catch (UnsupportedEncodingException e) {

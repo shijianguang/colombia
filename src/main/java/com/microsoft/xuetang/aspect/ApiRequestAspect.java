@@ -109,6 +109,7 @@ public class ApiRequestAspect {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             RspCodeMsg rsp = getExceptionRsp(e);
             // 未知异常不抛出错误详情
             if (rsp == RspCodeMsg.SYSTEM_ERR) {
@@ -150,6 +151,7 @@ public class ApiRequestAspect {
                 param.setRequestUri(requestUri);
                 param.setToken(token);
             } catch (Exception e) {
+                e.printStackTrace();
                 if (e instanceof ParamCheckException) {
                     // 如果是 ParamCheckException 异常，直接抛出
                     throw (ParamCheckException) e;

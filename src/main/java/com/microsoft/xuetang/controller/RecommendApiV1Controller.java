@@ -5,6 +5,7 @@ import com.microsoft.xuetang.bean.SearchList;
 import com.microsoft.xuetang.bean.schema.response.search.SearchElementData;
 import com.microsoft.xuetang.component.QueryUnderstandingComponent;
 import com.microsoft.xuetang.schema.request.Request;
+import com.microsoft.xuetang.schema.request.recommend.RecommendApiRequest;
 import com.microsoft.xuetang.schema.response.Response;
 import com.microsoft.xuetang.schema.response.search.SearchApiResponseV2;
 import com.microsoft.xuetang.service.RecommendService;
@@ -30,7 +31,7 @@ public class RecommendApiV1Controller {
     @ApiRequest
     @ResponseBody
     @RequestMapping(value = "v1/recommend", method = { RequestMethod.GET, RequestMethod.POST}, produces = "application/json")
-    public Response search(HttpServletRequest request, HttpServletResponse response, Request param) {
+    public Response search(HttpServletRequest request, HttpServletResponse response, RecommendApiRequest param) {
         SearchList<SearchElementData> ret = recommendService.recommend(param);
         return new Response<>(ret);
     }

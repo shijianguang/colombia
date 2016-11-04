@@ -8,6 +8,7 @@ import com.microsoft.xuetang.bean.SearchList;
 import com.microsoft.xuetang.bean.internal.response.BingAcademicSearchEntity;
 import com.microsoft.xuetang.bean.internal.response.BingWebResultEntity;
 import com.microsoft.xuetang.bean.internal.response.DialogueEngineSearchEntity;
+import com.microsoft.xuetang.bean.internal.response.QueryRelatedEntity;
 import com.microsoft.xuetang.bean.schema.response.search.BaseSearchViewEntity;
 import com.microsoft.xuetang.bean.schema.response.search.SearchElementData;
 import com.microsoft.xuetang.component.Adapter.MultiMediaSearchAdaper;
@@ -96,6 +97,23 @@ public class SearchService {
             response.setPaperList(academicList);
         }
 
+        List<QueryRelatedEntity> relatedEntities = multiMediaSearchList.getRelatedEntities();
+        relatedEntities.sort(new Comparator<QueryRelatedEntity>() {
+            @Override public int compare(QueryRelatedEntity o1, QueryRelatedEntity o2) {
+                return o2.getScore() - o1.getScore();
+            }
+        });
+        response.setRelatedEntity(relatedEntities);
+        multiMediaSearchList.setRelatedEntities(null);
+
+        int size = relatedEntities.size();
+        List<String> recommendQuery = new ArrayList<>();
+        for(int i = 0 ;i < 2 && i < size ; ++ i) {
+            recommendQuery.add(relatedEntities.get(i).getName());
+        }
+        response.setRecommendQuery(recommendQuery);
+        response.setQuery(searchRequest.getQuery());
+
         return response;
     }
 
@@ -145,6 +163,8 @@ public class SearchService {
             result = webReRank(result);
         }
 
+        result.setQuery(searchApiRequest.getQuery());
+
         return result;
     }
 
@@ -156,10 +176,11 @@ public class SearchService {
         } catch (Exception e) {
             logger.error("Request query understanding system error. Message: {}", e.getMessage());
         }
+        MultiSearchList response = new MultiSearchList();
         if(quResponse != null) {
             searchRequest.setKeywords(quResponse.getKeywords());
+            response.setRelatedEntities(quResponse.getRelatedQuery());
         }
-        MultiSearchList response = new MultiSearchList();
         FederationContext<SearchList<SearchElementData>> pptSearchResponseFederationContext = new FederationContext<>("PPTSearch");
         pptSearchResponseFederationContext.put("request", searchRequest);
         federationEngine.submit(new FederationExecution<SearchList<SearchElementData>>() {
@@ -200,6 +221,7 @@ public class SearchService {
 
             if(result != null) {
                 videoReRank(result);
+                result.setQuery(searchRequest.getQuery());
                 return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
             } else {
                 logger.error("Search video data return null result");
@@ -216,6 +238,7 @@ public class SearchService {
         try {
             SearchList<SearchElementData> result = elasticSearchComponent.syncSearch(searchRequest, new MultiMediaSearchAdaper.RequestAdaper(indexAndType[0], indexAndType[1]), new MultiMediaSearchAdaper.ResponseAdaper());
             if(result != null) {
+                result.setQuery(searchRequest.getQuery());
                 return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
             } else {
                 logger.error("Search ppt data return null result");
@@ -293,6 +316,8 @@ public class SearchService {
                 result.add(elementData);
             }
         }
+
+        result.setQuery(searchRequest.getQuery());
 
         return result.range(searchRequest.getOffsetInt(), searchRequest.getCountInt());
     }

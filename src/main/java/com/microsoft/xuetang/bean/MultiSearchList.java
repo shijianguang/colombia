@@ -1,9 +1,11 @@
 package com.microsoft.xuetang.bean;
 
+import com.microsoft.xuetang.bean.internal.response.QueryRelatedEntity;
 import com.microsoft.xuetang.schema.response.search.SearchApiResponseV2;
 import com.microsoft.xuetang.util.Constants;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,6 +19,7 @@ public class MultiSearchList {
         }
     };
 
+    private List<QueryRelatedEntity> relatedEntities;
 
     public Map<String, SearchList> getMultiSearchList() {
         return multiSearchList;
@@ -32,5 +35,13 @@ public class MultiSearchList {
 
     public SearchList getSearchList(String key) {
         return multiSearchList.get(key);
+    }
+
+    public List<QueryRelatedEntity> getRelatedEntities() {
+        return relatedEntities;
+    }
+
+    public void setRelatedEntities(List<QueryRelatedEntity> relatedEntities) {
+        this.relatedEntities = relatedEntities;
     }
 }

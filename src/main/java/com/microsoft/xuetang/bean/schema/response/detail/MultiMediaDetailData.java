@@ -19,6 +19,7 @@ public class MultiMediaDetailData {
     private String imageUrl;
     private String iconUrl;
     private String clusterId;
+    private List<RelatedContent> relatedContents;
     private List<String> keywords;
     private List<String> categories;
 
@@ -124,6 +125,14 @@ public class MultiMediaDetailData {
 
     public void setClusterId(String clusterId) {
         this.clusterId = clusterId;
+    }
+
+    public List<RelatedContent> getRelatedContents() {
+        return relatedContents;
+    }
+
+    public void setRelatedContents(List<RelatedContent> relatedContents) {
+        this.relatedContents = relatedContents;
     }
 
     public List<String> getKeywords() {

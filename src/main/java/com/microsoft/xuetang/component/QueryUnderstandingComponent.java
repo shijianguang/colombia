@@ -15,7 +15,8 @@ public class QueryUnderstandingComponent extends BaseHttpComponent {
     private static final Logger logger = LoggerFactory.getLogger(QueryUnderstandingComponent.class);
 
     private static final String HOST = "http://10.0.0.5:4080";
-    private static final String QU_ANNOTATION_URL = HOST + "/qu/query_annotation";
+    private static final String TEST_HOST = "http://10.64.0.4:4080";
+    private static final String QU_ANNOTATION_URL = TEST_HOST + "/qu/query_annotation";
     private static final String SENSITIVE_DETECT_URL = HOST + "/qu/sensitive_detect";
 
 

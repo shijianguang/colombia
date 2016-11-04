@@ -1,5 +1,7 @@
 package com.microsoft.xuetang.bean.internal.response;
 
+import java.util.List;
+
 /**
  * Created by jiash on 8/30/2016.
  */
@@ -7,6 +9,7 @@ public class QueryKeyword {
     private String term;
     private int startOffset;
     private int endOffset;
+    private List<String> synons;
 
     public QueryKeyword() {}
 

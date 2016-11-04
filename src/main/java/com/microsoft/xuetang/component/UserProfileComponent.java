@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -17,12 +19,14 @@ import java.util.concurrent.ThreadLocalRandom;
 @Component
 public class UserProfileComponent {
     private static List<List<SimplePair<String, Float>>> fakeProfile;
+    private static Map<String, List<SimplePair<String, Float>>> fakeProfileMap;
     private static List<String> queryBall;
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
 
     static {
         fakeProfile = new ArrayList<>();
         queryBall = new ArrayList<>();
+        fakeProfileMap = new HashMap<>();
 
         List<String> line = new ArrayList<String>() {
             {
@@ -32,11 +36,12 @@ public class UserProfileComponent {
             }
         };
         queryBall.addAll(line);
-        fakeProfile.add(Lists.transform(line, new Function<String, SimplePair<String, Float>>() {
-            @Override public SimplePair<String, Float> apply(String input) {
-                return new SimplePair<>(input.toLowerCase(), 1f);
-            }
-        }));
+        List<SimplePair<String, Float>> profile = new ArrayList<>();
+        for(String ele : line) {
+            profile.add(new SimplePair<>(ele, 1f));
+        }
+        fakeProfile.add(profile);
+        fakeProfileMap.put(line.get(0), profile);
 
         line = new ArrayList<String>() {
             {
@@ -46,11 +51,12 @@ public class UserProfileComponent {
             }
         };
         queryBall.addAll(line);
-        fakeProfile.add(Lists.transform(line, new Function<String, SimplePair<String, Float>>() {
-            @Override public SimplePair<String, Float> apply(String input) {
-                return new SimplePair<>(input.toLowerCase(), 1f);
-            }
-        }));
+        profile = new ArrayList<>();
+        for(String ele : line) {
+            profile.add(new SimplePair<>(ele, 1f));
+        }
+        fakeProfile.add(profile);
+        fakeProfileMap.put(line.get(0), profile);
 
         line = new ArrayList<String>() {
             {
@@ -60,11 +66,12 @@ public class UserProfileComponent {
             }
         };
         queryBall.addAll(line);
-        fakeProfile.add(Lists.transform(line, new Function<String, SimplePair<String, Float>>() {
-            @Override public SimplePair<String, Float> apply(String input) {
-                return new SimplePair<>(input.toLowerCase(), 1f);
-            }
-        }));
+        profile = new ArrayList<>();
+        for(String ele : line) {
+            profile.add(new SimplePair<>(ele, 1f));
+        }
+        fakeProfile.add(profile);
+        fakeProfileMap.put(line.get(0), profile);
 
         line = new ArrayList<String>() {
             {
@@ -74,11 +81,12 @@ public class UserProfileComponent {
             }
         };
         queryBall.addAll(line);
-        fakeProfile.add(Lists.transform(line, new Function<String, SimplePair<String, Float>>() {
-            @Override public SimplePair<String, Float> apply(String input) {
-                return new SimplePair<>(input.toLowerCase(), 1f);
-            }
-        }));
+        profile = new ArrayList<>();
+        for(String ele : line) {
+            profile.add(new SimplePair<>(ele, 1f));
+        }
+        fakeProfile.add(profile);
+        fakeProfileMap.put(line.get(0), profile);
 
         line = new ArrayList<String>() {
             {
@@ -88,11 +96,12 @@ public class UserProfileComponent {
             }
         };
         queryBall.addAll(line);
-        fakeProfile.add(Lists.transform(line, new Function<String, SimplePair<String, Float>>() {
-            @Override public SimplePair<String, Float> apply(String input) {
-                return new SimplePair<>(input.toLowerCase(), 1f);
-            }
-        }));
+        profile = new ArrayList<>();
+        for(String ele : line) {
+            profile.add(new SimplePair<>(ele, 1f));
+        }
+        fakeProfile.add(profile);
+        fakeProfileMap.put(line.get(0), profile);
 
         line = new ArrayList<String>() {
             {
@@ -102,11 +111,12 @@ public class UserProfileComponent {
             }
         };
         queryBall.addAll(line);
-        fakeProfile.add(Lists.transform(line, new Function<String, SimplePair<String, Float>>() {
-            @Override public SimplePair<String, Float> apply(String input) {
-                return new SimplePair<>(input.toLowerCase(), 1f);
-            }
-        }));
+        profile = new ArrayList<>();
+        for(String ele : line) {
+            profile.add(new SimplePair<>(ele, 1f));
+        }
+        fakeProfile.add(profile);
+        fakeProfileMap.put(line.get(0), profile);
 
         line = new ArrayList<String>() {
             {
@@ -115,16 +125,21 @@ public class UserProfileComponent {
             }
         };
         queryBall.addAll(line);
-        fakeProfile.add(Lists.transform(line, new Function<String, SimplePair<String, Float>>() {
-            @Override public SimplePair<String, Float> apply(String input) {
-                return new SimplePair<>(input.toLowerCase(), 1f);
-            }
-        }));
+        profile = new ArrayList<>();
+        for(String ele : line) {
+            profile.add(new SimplePair<>(ele, 1f));
+        }
+        fakeProfile.add(profile);
+        fakeProfileMap.put(line.get(0), profile);
     }
 
     public static List<SimplePair<String, Float>> getUserProfile() {
         int idx = random.nextInt(fakeProfile.size());
         return fakeProfile.get(idx);
+    }
+
+    public static List<SimplePair<String, Float>> getUserProfile(String query) {
+        return fakeProfileMap.get(query);
     }
 
     public static List<String> getQueryBall() {
